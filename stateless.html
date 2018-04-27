@@ -426,10 +426,12 @@
 						// Currently implementing only a single guess
 						// Did that set all of the remaining borders?  If so,
 						var xlist=this.anySchematicBorders();
-						var descriptor = this.smallestRectangle();
-						if(descriptor !== undefined && xlist.length === 0){
-							//  start estimating process based on that sequence
-							this.estimateBorders(glist[j], list, descriptor);
+						if(xlist.length === 0){
+							var descriptor = this.smallestRectangle();
+							if(descriptor !== undefined){
+								//  start estimating process based on that sequence
+								this.estimateBorders(glist[j], list, descriptor);
+							}
 						}
 						
 						// Afterwards, back out guess and subsequent
